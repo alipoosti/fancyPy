@@ -25,6 +25,10 @@
 # Import the argparse library for handling command-line arguments
 import argparse
 
+########################################
+########### Argument Parsing ###########
+########################################
+
 # Initialize the argument parser
 parser = argparse.ArgumentParser(description='Fancify a given title into a block comment.')
 
@@ -65,8 +69,16 @@ title_len = len(title)
 if (block_len - title_len - 2) < 0:
     block_len = title_len + 12
 
+########################################
+########### Make Fancy Title ###########
+########################################
+
 # Check the style and build the comment block accordingly
 if style[0].lower() == 'c' or style.lower() == 'java':
+    ########################################
+    ########## Style 'C/C++/Java' ##########
+    ########################################
+
     style = 'C/C++/Java'
     # Define the top and bottom lines of the comment block
     out_line1 = ''.join(['/*\n' , '-'*block_len])
@@ -75,6 +87,10 @@ if style[0].lower() == 'c' or style.lower() == 'java':
     mid_line = ' '*((block_len - title_len - 2) // 2) + ' ' + title + ' ' + ' '*((block_len - title_len - 2) // 2 + (block_len - title_len - 2) % 2) 
     output_str = ''.join([out_line1, '\n', mid_line, '\n', out_line2])
 elif style.lower() == 'matlab' or style.lower() == 'latex' or style.lower() == 'tex':
+    ########################################
+    ######### Style 'MATLAB/LaTeX' #########
+    ########################################
+
     style = 'MATLAB/LaTeX'
     # Define the top and bottom lines of the comment block
     out_line = '%'*block_len
@@ -82,6 +98,10 @@ elif style.lower() == 'matlab' or style.lower() == 'latex' or style.lower() == '
     mid_line = '%'*((block_len - title_len - 2) // 2) + ' ' + title + ' ' + '%'*((block_len - title_len - 2) // 2 + (block_len - title_len - 2) % 2) 
     output_str = ''.join([out_line, '\n', mid_line, '\n', out_line])
 else:
+    ########################################
+    ############ Style 'Python' ############
+    ########################################
+
     style = 'Python'
     # Define the top and bottom lines of the comment block
     out_line = '#'*block_len
@@ -89,8 +109,16 @@ else:
     mid_line = '#'*((block_len - title_len - 2) // 2) + ' ' + title + ' ' + '#'*((block_len - title_len - 2) // 2 + (block_len - title_len - 2) % 2) 
     output_str = ''.join([out_line, '\n', mid_line, '\n', out_line])
 
+########################################
+############# Print Output #############
+########################################
+
 # Output the fancified comment block along with the style
 print(output_str + '\n\n' + 'Comment Style: ' + style)
+
+########################################
+######## Save Output (Optional) ########
+########################################
 
 # If the output option is enabled, write the output to a file
 if args.output:
