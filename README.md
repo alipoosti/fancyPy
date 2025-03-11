@@ -83,7 +83,7 @@ To easily run the script from any directory, add an alias to your `.bashrc` or `
 
 2. Add the following line to create an alias for the script:
    ```bash
-   alias fancify="python /path/to/fancyPy.py"
+   alias fancipy="python /path/to/fancyPy.py"
    ```
 
 3. Reload the shell configuration:
@@ -93,7 +93,7 @@ To easily run the script from any directory, add an alias to your `.bashrc` or `
 
 4. Now you can simply run:
    ```bash
-   fancify "My Fancy Title"
+   fancipy "My Fancy Title"
    ```
 
 ## ⚙️ Requirements
